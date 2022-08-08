@@ -1,0 +1,27 @@
+{
+  "name": "mernsetup",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server",
+    "dev": "nodemon server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ramthenmala/Sticky-Notes.git"
+  },
+  "keywords": [],
+  "author": "Ram kumar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ramthenmala/Sticky-Notes/issues"
+  },
+  "homepage": "https://github.com/ramthenmala/Sticky-Notes#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
