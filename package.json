@@ -19,7 +19,9 @@
   },
   "homepage": "https://github.com/ramthenmala/Sticky-Notes#readme",
   "dependencies": {
-    "express": "^4.18.1"
+    "date-fns": "^2.29.1",
+    "express": "^4.18.1",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.19"
