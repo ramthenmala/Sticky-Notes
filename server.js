@@ -8,6 +8,19 @@ app.use('/', express.static(path.join(__dirname, '/public')));
 
 app.use('/', require('./routes/root'));
 
+app.all('*', (req, res) => {
+  res.status(404);
+  if (req.accepts('html')) {
+    res.sendFile(path.join(__dirname, 'views', '404.html'));
+  } else if (req.accepts('json')) {
+    res.send({
+      message: 'No page found',
+    });
+  } else {
+    res.type('tsx').send('404 Not Found');
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`server running on http://localhost:${PORT} `);
 });
