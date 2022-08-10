@@ -3,12 +3,18 @@ const path = require('path');
 const app = express();
 const { logger } = require('./middleware/logger');
 const errorHandler = require('./middleware/errorHandler');
+const cookieParser = require('cookie-parser');
+const cors = require('cors');
 const PORT = process.env.PORT || 3500;
 
+app.use(cors());
 app.use(logger);
+
 // MIDDLEWARE
 // parse json request
 app.use(express.json());
+app.use(cookieParser());
+
 app.use('/', express.static(path.join(__dirname, 'public')));
 
 app.use('/', require('./routes/root'));
@@ -22,7 +28,7 @@ app.all('*', (req, res) => {
       message: 'No page found',
     });
   } else {
-    res.type('tsx').send('404 Not Found');
+    res.type('txt').send('404 Not Found');
   }
 });
 
