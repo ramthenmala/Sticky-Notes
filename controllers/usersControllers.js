@@ -31,12 +31,45 @@ const createNewUser = asyncHandler(async (req, res) => {
   if (duplicate) {
     return res.status(400).json({ message: 'User Name already in use' });
   }
+
+  const hashPassword = await bcrypt.hashSync(password, 10);
+  const userObject = { username, password: hashPassword, roles };
+
+  const user = await User.create(userObject);
+
+  if (user) {
+    return res
+      .status(200)
+      .json({ message: `New user with name ${username} created` });
+  } else {
+    return res.status(400).json({ message: `Unable to create New User` });
+  }
 });
 
 // @desc    Update User
 // @route   PATCH /user
 // @access  PRIVATE
-const updateUser = asyncHandler(async (req, res) => {});
+const updateUser = asyncHandler(async (req, res) => {
+  const { id, username, password, roles, active } = req.body;
+
+  if (
+    !id ||
+    !username ||
+    !Array.isArray(roles) ||
+    !roles.length ||
+    typeof active !== 'boolean'
+  ) {
+    return res.status(400).json({ message: `All fields are required` });
+  }
+
+  const user = await User.findById(id).exec()
+
+  if(!user) {
+    return res.status(400).json({ message: `Cant find User`})
+  }
+
+  
+});
 
 // @desc    Delete User
 // @route   DELETE /user
