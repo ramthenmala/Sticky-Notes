@@ -1,0 +1,36 @@
+{
+  "name": "mernsetup",
+  "version": "1.0.0",
+  "description": "techNotes MERN",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server",
+    "dev": "nodemon server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ramthenmala/Sticky-Notes.git"
+  },
+  "keywords": [],
+  "author": "Ram kumar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ramthenmala/Sticky-Notes/issues"
+  },
+  "homepage": "https://github.com/ramthenmala/Sticky-Notes#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "date-fns": "^2.29.1",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "express-async-handler": "^1.2.0",
+    "mongoose": "^6.5.2",
+    "mongoose-sequence": "^5.3.1",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
