@@ -19,7 +19,6 @@ const getAllUsers = asyncHandler(async (req, res) => {
 // @route   POST /user
 // @access  PRIVATE
 const createNewUser = asyncHandler(async (req, res) => {
-  console.log(req.body)
   const { username, password, roles } = req.body;
 
   if (!username || !password || !Array.isArray(roles) || !roles.length) {
@@ -60,7 +59,7 @@ const updateUser = asyncHandler(async (req, res) => {
     !roles.length ||
     typeof active !== 'boolean'
   ) {
-    return res.status(400).json({ message: `All fields are required` });
+    return res.status(400).json({ message: `All Fields Required` });
   }
 
   const user = await User.findById(id).exec()
